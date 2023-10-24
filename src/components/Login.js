@@ -1,20 +1,22 @@
 import React, { useContext, useRef } from "react";
 import { useNavigate } from "react-router";
+import { SocketContext } from "../contexts/SocketProvider";
 import { UsersContext } from "../contexts/UsersProvider";
 
 const Login = () => {
+  const socket = useContext(SocketContext);
   const nameRef = useRef(null);
   const roomRef = useRef(null);
   const navigate = useNavigate();
-  const { users, createUsers } = useContext(UsersContext);
+  const { users, addUser } = useContext(UsersContext);
 
   const handleClick = (e) => {
     e.preventDefault();
     console.log(nameRef.current.value);
     const roomName = roomRef.current.value;
     const userName = nameRef.current.value;
-    createUsers(1, userName, roomName);
-    navigate("/chat");
+    const user = addUser(socket.id, userName, roomName);
+    navigate("/chat", { state: user });
   };
   return (
     <div>

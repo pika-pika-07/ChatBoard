@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import { ConversationsContext } from "../contexts/ConversationProvider";
 import { SocketContext } from "../contexts/SocketProvider";
 import { UsersContext } from "../contexts/UsersProvider";
 
 const Content = () => {
   const [inputValue, setInputValue] = useState("");
-  const [messages, setMessages] = useState([]);
+  // const [messages, setMessages] = useState([]);
+  const { messages, createMessages } = useContext(ConversationsContext);
   const socket = useContext(SocketContext);
   const { users } = useContext(UsersContext);
 
@@ -12,14 +14,15 @@ const Content = () => {
     if (!socket) {
       return;
     } else {
-      socket.on("receieve", (data) => {
-        setMessages((messages) => {
-          return [...messages, data];
-        });
+      socket.on("recieve", (data) => {
+        createMessages(data);
+        // setMessages((messages) => {
+        //   return [...messages, data];
+        // });
       });
     }
 
-    return () => socket.off("receieve");
+    return () => socket.off("recieve");
   }, [socket]);
 
   const handleMessageClick = () => {
@@ -33,7 +36,7 @@ const Content = () => {
     <div className="w-9/12 h-full border border-solid flex flex-col justify-between">
       <div className="h-5/12 ">
         {messages.map((message) => message)}
-        <div>
+        {/* <div>
           <p>
             Parth
             <span> Time - 9.07 am </span>
@@ -44,7 +47,7 @@ const Content = () => {
             Isha
             <span> Time - 9.10 am </span>
           </p>
-        </div>
+        </div> */}
       </div>
       <div className="h-7/12 flex justify-between">
         <div className="border border-black w-11/12 p-5">

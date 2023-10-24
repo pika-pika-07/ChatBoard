@@ -4,6 +4,7 @@ import Body from "./components/Body";
 import Header from "./components/Header";
 import { SocketProvider } from "./contexts/SocketProvider";
 import { UsersProvider } from "./contexts/UsersProvider";
+import { ConversationProvider } from "./contexts/ConversationProvider";
 function App() {
   // useEffect(() => {
   //   socket.on("connect", () => {
@@ -21,8 +22,10 @@ function App() {
     <div className="flex flex-col text-lg border border-solid w-12/12 h-screen p-5 m-5 ">
       <SocketProvider>
         <UsersProvider>
-          {/* <Header /> */}
-          <Body />
+          <ConversationProvider>
+            {/* <Header /> */}
+            <Body />
+          </ConversationProvider>
         </UsersProvider>
       </SocketProvider>
     </div>
