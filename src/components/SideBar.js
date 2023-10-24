@@ -2,15 +2,8 @@ import React, { useContext, useEffect } from "react";
 // import { useUsers } from "../contexts/UsersProvider";
 import { UsersContext } from "../contexts/UsersProvider";
 const SideBar = () => {
-  const { users, createUsers } = useContext(UsersContext);
-  //   const { users, createUsers } = useUsers();
+  const { users } = useContext(UsersContext);
 
-  useEffect(() => {
-    const id = 3;
-    const name = "New userrr";
-    const room = "JS";
-    createUsers(id, name, room);
-  }, []);
   return (
     <div className="w-3/12 border border-r-8 h-full">
       <div>

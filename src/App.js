@@ -3,7 +3,7 @@ import "./App.css";
 import Body from "./components/Body";
 import Header from "./components/Header";
 import { SocketProvider } from "./contexts/SocketProvider";
-
+import { UsersProvider } from "./contexts/UsersProvider";
 function App() {
   // useEffect(() => {
   //   socket.on("connect", () => {
@@ -20,8 +20,10 @@ function App() {
   return (
     <div className="flex flex-col text-lg border border-solid w-12/12 h-screen p-5 m-5 ">
       <SocketProvider>
-        <Header />
-        <Body />
+        <UsersProvider>
+          {/* <Header /> */}
+          <Body />
+        </UsersProvider>
       </SocketProvider>
     </div>
   );

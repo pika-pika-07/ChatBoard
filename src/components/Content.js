@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SocketContext } from "../contexts/SocketProvider";
+import { UsersContext } from "../contexts/UsersProvider";
 
 const Content = () => {
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState([]);
   const socket = useContext(SocketContext);
+  const { users } = useContext(UsersContext);
+
   useEffect(() => {
     if (!socket) {
       return;
