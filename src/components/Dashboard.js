@@ -20,11 +20,11 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!socket) return;
-    socket.on("message", (data) => {
+    socket.on("welcomeMessage", (data) => {
       createMessages(data);
     });
 
-    return () => socket.off("message");
+    return () => socket.off("welcomeMessage");
   }, [socket]);
   return (
     <div className="w-full h-full flex">

@@ -15,16 +15,17 @@ const Content = () => {
     if (!socket) {
       return;
     } else {
-      socket.on("recieve", (data) => {
+      socket.on("recieveChatMessage", (data) => {
+        debugger;
         createMessages(data);
       });
     }
 
-    return () => socket.off("recieve");
+    return () => socket.off("recieveChatMessage");
   }, [socket]);
 
   const handleMessageClick = () => {
-    socket.emit("sendMessage", inputValue);
+    socket.emit("sendChatMessage", inputValue);
   };
 
   const handleInputChange = (e) => {
@@ -32,7 +33,7 @@ const Content = () => {
   };
   return (
     <div className="w-9/12 h-full border border-solid flex flex-col justify-between">
-      <div className="h-5/12 ">
+      <div className="h-5/12 flex flex-col">
         {messages.map((message) => (
           <Message
             message={message.message}
@@ -41,18 +42,6 @@ const Content = () => {
             loggedInUser={loggedInUser}
           />
         ))}
-        {/* <div>
-          <p>
-            Parth
-            <span> Time - 9.07 am </span>
-          </p>
-        </div>
-        <div>
-          <p>
-            Isha
-            <span> Time - 9.10 am </span>
-          </p>
-        </div> */}
       </div>
       <div className="h-7/12 flex justify-between">
         <div className="border border-black w-11/12 p-5">
