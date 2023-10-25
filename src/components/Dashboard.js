@@ -27,7 +27,7 @@ const Dashboard = () => {
     return () => socket.off("welcomeMessage");
   }, [socket]);
   return (
-    <div className="w-full h-full flex">
+    <div className="w-full h-full flex border border-black">
       <SideBar />
       <Content />
     </div>

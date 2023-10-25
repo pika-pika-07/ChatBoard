@@ -7,7 +7,7 @@ import { UsersProvider } from "./contexts/UsersProvider";
 import { ConversationProvider } from "./contexts/ConversationProvider";
 function App() {
   return (
-    <div className="flex flex-col text-lg border border-solid w-12/12 h-screen p-5 m-5 ">
+    <div className="flex flex-col text-lg  max-w-7xl	 h-screen p-5 mx-auto my-auto">
       <SocketProvider>
         <UsersProvider>
           <ConversationProvider>

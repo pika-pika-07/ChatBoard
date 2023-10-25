@@ -20,10 +20,6 @@ const Body = () => {
   return (
     <div className="w-full h-full flex">
       <RouterProvider router={appRouter}></RouterProvider>
-      {/* <UsersProvider>
-        <SideBar />
-        <Content />
-      </UsersProvider> */}
     </div>
   );
 };

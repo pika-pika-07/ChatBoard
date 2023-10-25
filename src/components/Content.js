@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { ConversationsContext } from "../contexts/ConversationProvider";
 import { SocketContext } from "../contexts/SocketProvider";
 import { UsersContext } from "../contexts/UsersProvider";
 import Message from "./Message";
 
 const Content = () => {
+  const myref = useRef();
   const [inputValue, setInputValue] = useState("");
   const { messages, createMessages } = useContext(ConversationsContext);
   const { loggedInUser } = useContext(UsersContext);
@@ -16,6 +17,10 @@ const Content = () => {
       return;
     } else {
       socket.on("recieveChatMessage", (data) => {
+        // myref.current.scrollIntoView({ block: "nearest" });
+        // debugger;
+        myref.current.scrollTop = myref.current.scrollHeight;
+
         createMessages(data);
       });
     }
@@ -25,29 +30,46 @@ const Content = () => {
 
   const handleMessageClick = () => {
     socket.emit("sendChatMessage", inputValue);
+    setInputValue("");
   };
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleMessageClick();
+    }
+  };
   return (
-    <div className="w-9/12 h-full border border-solid flex flex-col justify-between">
-      <div className="h-5/12 flex flex-col">
-        {messages.map((message) => (
-          <Message
-            message={message.message}
-            user={message.user}
-            time={message.time}
-            loggedInUser={loggedInUser}
-          />
-        ))}
-      </div>
-      <div className="h-7/12 flex justify-between">
-        <div className="border border-black w-11/12 p-5">
-          <input value={inputValue} onChange={handleInputChange} />
+    <div className="flex flex-col w-full h-full">
+      <div className="h-full border border-solid flex flex-col justify-between ">
+        <div ref={myref} className="flex flex-col overflow-scroll">
+          {messages.map((message) => (
+            <Message
+              message={message.message}
+              user={message.user}
+              time={message.time}
+              loggedInUser={loggedInUser}
+            />
+          ))}
         </div>
-        <div className="border border-black w-1/12 ">
-          <button onClick={handleMessageClick}>Send Message</button>
+        <div className="flex justify-between bg-blue-400">
+          <div className="p-3 rounded-lg">
+            <input
+              className="w-full  outline-none p-2	"
+              value={inputValue}
+              placeholder="Enter message"
+              onKeyUp={handleKeyPress}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className=" w-1/12 px-3 rounded-lg flex justify-between items-center">
+            <button onClick={handleMessageClick}>
+              <i class="fa-regular fa-paper-plane fa-lg"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
