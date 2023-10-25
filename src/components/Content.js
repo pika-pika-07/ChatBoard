@@ -44,7 +44,7 @@ const Content = () => {
   };
   return (
     <div className=" h-[100%] w-9/12 border border-solid flex flex-col  ">
-      <div className="flex flex-col overflow-scroll  h-[90%]">
+      <div ref={myref} className="flex flex-col overflow-scroll h-[90%]">
         {messages.map((message) => (
           <Message
             message={message.message}
@@ -54,7 +54,7 @@ const Content = () => {
           />
         ))}
       </div>
-      <div ref={myref}></div>
+      <div></div>
       <div className="flex justify-between bg-blue-400 h-[10%] ">
         <div className="p-3 rounded-lg">
           <input
