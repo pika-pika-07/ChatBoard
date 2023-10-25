@@ -16,7 +16,6 @@ const Content = () => {
       return;
     } else {
       socket.on("recieveChatMessage", (data) => {
-        debugger;
         createMessages(data);
       });
     }
