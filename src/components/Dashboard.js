@@ -5,6 +5,7 @@ import SideBar from "./SideBar";
 import { useLocation } from "react-router-dom";
 import { SocketContext } from "../contexts/SocketProvider";
 import { ConversationsContext } from "../contexts/ConversationProvider";
+import Header from "./Header";
 
 const Dashboard = () => {
   const { users } = useContext(UsersContext);
@@ -27,9 +28,15 @@ const Dashboard = () => {
     return () => socket.off("welcomeMessage");
   }, [socket]);
   return (
-    <div className="w-full h-full flex border border-black">
-      <SideBar />
-      <Content />
+    <div className="w-full h-full flex flex-col border border-black">
+      <div className="h-[10%]">
+        <Header />
+      </div>
+
+      <div className="flex w-full h-[90%]">
+        <SideBar />
+        <Content />
+      </div>
     </div>
   );
 };

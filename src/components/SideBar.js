@@ -20,7 +20,7 @@ const SideBar = () => {
   }, [socket]);
 
   return (
-    <div className="w-3/12 border h-full">
+    <div className="w-3/12 h-full overflow-scroll">
       <div>
         <h3> Room Name </h3>
       </div>
