@@ -20,15 +20,17 @@ const SideBar = () => {
   }, [socket]);
 
   return (
-    <div className="w-3/12 h-full overflow-scroll">
-      <div>
+    <div className="w-2/12 h-full overflow-scroll bg-blue-400">
+      <div className="flex text-white text-lg justify-center my-5">
         <h3> Room Name </h3>
       </div>
-      <div>{room}</div>
+      <div className="flex text-white text-lg justify-center  bg-blue-500	">
+        {room}
+      </div>
 
       <div className="my-10">
-        <h3> Users </h3>
-        <ul className="my-5">
+        <h3 className="flex text-white text-lg justify-center my-5"> Users </h3>
+        <ul className=" flex text-white text-lg justify-center  items-center my-5">
           {users.map((user) => {
             return <li> {user.name} </li>;
           })}

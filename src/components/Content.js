@@ -43,7 +43,7 @@ const Content = () => {
     }
   };
   return (
-    <div className=" h-[100%] w-9/12 border border-solid flex flex-col  ">
+    <div className=" h-[100%] w-10/12  flex flex-col  ">
       <div ref={myref} className="flex flex-col overflow-scroll h-[90%]">
         {messages.map((message) => (
           <Message
@@ -55,10 +55,10 @@ const Content = () => {
         ))}
       </div>
       <div></div>
-      <div className="flex justify-between bg-blue-400 h-[10%] ">
-        <div className="p-3 rounded-lg">
+      <div className=" w-full flex justify-between items-center bg-blue-400 h-[10%] ">
+        <div className=" w-full  rounded-lg">
           <input
-            className="w-full  outline-none p-2	"
+            className="w-full outline-none p-2	"
             value={inputValue}
             placeholder="Enter message"
             onKeyUp={handleKeyPress}
