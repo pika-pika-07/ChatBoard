@@ -4,6 +4,7 @@ import { UsersContext } from "../contexts/UsersProvider";
 const SideBar = () => {
   // const { users, loggedInUser } = useContext(UsersContext);
   const socket = useContext(SocketContext);
+
   const [users, setUsers] = useState([]);
   const [room, setRoom] = useState(null);
   useEffect(() => {
@@ -29,10 +30,18 @@ const SideBar = () => {
       </div>
 
       <div className="my-10">
-        <h3 className="flex text-white text-lg justify-center my-5"> Users </h3>
-        <ul className=" flex text-white text-lg justify-center  items-center my-5">
+        <h3 className="flex text-white text-lg justify-center my-5 ">
+          {" "}
+          Users{" "}
+        </h3>
+        <ul className=" flex text-white text-lg justify-center  items-center my-5 flex-col">
           {users.map((user) => {
-            return <li> {user.name} </li>;
+            debugger;
+            return (
+              <li>
+                {user.name}d{user.id === socket.id ? "Online" : "offline"}
+              </li>
+            );
           })}
         </ul>
       </div>
