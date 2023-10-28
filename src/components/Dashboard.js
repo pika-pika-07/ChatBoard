@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { UsersContext } from "../contexts/UsersProvider";
 import Content from "./Content";
 import SideBar from "./SideBar";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { SocketContext } from "../contexts/SocketProvider";
 import { ConversationsContext } from "../contexts/ConversationProvider";
 import Header from "./Header";
@@ -12,11 +12,17 @@ const Dashboard = () => {
   const socket = useContext(SocketContext);
   const { messages, createMessages } = useContext(ConversationsContext);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!socket) return;
     const user = location.state;
-    socket.emit("join-room", { user });
+    debugger;
+    if (!user) {
+      navigate("/");
+    } else {
+      socket.emit("join-room", { user });
+    }
   }, [location]);
 
   useEffect(() => {

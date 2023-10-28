@@ -12,18 +12,35 @@ const Login = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(nameRef.current.value);
     const roomName = roomRef.current.value;
     const userName = nameRef.current.value;
     const user = addUser(socket.id, userName, roomName);
-    navigate("/chat", { state: user });
+    navigate(`/chat?user=${user.name}&room=${user.room}`, {
+      state: user,
+    });
   };
   return (
     <div>
-      <form>
-        <input ref={roomRef} type="text" name="room" placeholder="Enter room" />
-        <input ref={nameRef} type="text" name="user" placeholder="Enter Name" />
-        <button onClick={handleClick}>Join Room</button>
+      <form className="md:w-3/12 w-[80%] absolute p-12 bg-blue-400 my-24 mx-auto right-0 left-0 text-white bg-opacity-80">
+        <h1 className="font-bold text-3xl py-4">Welcome to Chat</h1>
+        <input
+          ref={roomRef}
+          type="text"
+          placeholder="Enter Room Name"
+          className="p-4 my-2 w-full bg-gray-100 text-black"
+        />
+        <input
+          ref={nameRef}
+          type="text"
+          placeholder="Enter Name"
+          className="p-4 my-2 w-full bg-gray-100"
+        />
+        <button
+          className="p-4 my-6 bg-red-700 w-full rounded-lg"
+          onClick={handleClick}
+        >
+          Join Room
+        </button>
       </form>
     </div>
   );
