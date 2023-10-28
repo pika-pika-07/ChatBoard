@@ -15,7 +15,7 @@ const Login = () => {
     const roomName = roomRef.current.value;
     const userName = nameRef.current.value;
     const user = addUser(socket.id, userName, roomName);
-    navigate(`/chat?user=${user.name}&room=${user.room}`, {
+    navigate(`/chat?username=${user.name}&room=${user.room}`, {
       state: user,
     });
   };
@@ -33,7 +33,7 @@ const Login = () => {
           ref={nameRef}
           type="text"
           placeholder="Enter Name"
-          className="p-4 my-2 w-full bg-gray-100"
+          className="p-4 my-2 w-full bg-gray-100 text-black"
         />
         <button
           className="p-4 my-6 bg-red-700 w-full rounded-lg"

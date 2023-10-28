@@ -7,7 +7,9 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     const newSocket = io("http://localhost:5600");
-    setSocket(newSocket);
+    newSocket.on("connect", () => {
+      setSocket(newSocket);
+    });
     return () => newSocket.close();
   }, []);
   return (
