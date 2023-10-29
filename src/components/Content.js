@@ -9,7 +9,7 @@ const Content = () => {
   const [inputValue, setInputValue] = useState("");
   const { messages, createMessages } = useContext(ConversationsContext);
   const { loggedInUser } = useContext(UsersContext);
-  const socket = useContext(SocketContext);
+  const { socket } = useContext(SocketContext);
   const { users } = useContext(UsersContext);
 
   useEffect(() => {

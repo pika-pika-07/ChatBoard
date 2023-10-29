@@ -4,7 +4,7 @@ import { SocketContext } from "../contexts/SocketProvider";
 import { UsersContext } from "../contexts/UsersProvider";
 
 const Login = () => {
-  const socket = useContext(SocketContext);
+  const { socket } = useContext(SocketContext);
   const nameRef = useRef(null);
   const roomRef = useRef(null);
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ const Login = () => {
     const roomName = roomRef.current.value;
     const userName = nameRef.current.value;
     const user = addUser(socket.id, userName, roomName);
+    debugger;
     navigate(`/chat?username=${user.name}&room=${user.room}`, {
       state: user,
     });

@@ -8,8 +8,14 @@ export const ConversationProvider = ({ children }) => {
   const createMessages = (newMessage) => {
     setMessages((message) => [...message, newMessage]);
   };
+
+  const resetMessages = () => {
+    setMessages([]);
+  };
   return (
-    <ConversationsContext.Provider value={{ messages, createMessages }}>
+    <ConversationsContext.Provider
+      value={{ messages, createMessages, resetMessages }}
+    >
       {children}
     </ConversationsContext.Provider>
   );

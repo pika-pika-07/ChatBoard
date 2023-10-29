@@ -9,7 +9,7 @@ import Header from "./Header";
 
 const Dashboard = () => {
   const { loggedInUser, addUser } = useContext(UsersContext);
-  const socket = useContext(SocketContext);
+  const { socket } = useContext(SocketContext);
   const { messages, createMessages } = useContext(ConversationsContext);
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,6 +19,7 @@ const Dashboard = () => {
   const room = searchParams.get("room");
 
   useEffect(() => {
+    debugger;
     if (!socket) return;
     if (!loggedInUser) {
       if (username && room) {

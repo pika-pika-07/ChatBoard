@@ -3,7 +3,7 @@ import { SocketContext } from "../contexts/SocketProvider";
 import { UsersContext } from "../contexts/UsersProvider";
 const SideBar = () => {
   const { loggedInUser } = useContext(UsersContext);
-  const socket = useContext(SocketContext);
+  const { socket } = useContext(SocketContext);
 
   const [users, setUsers] = useState([]);
   const [room, setRoom] = useState(null);
@@ -46,23 +46,26 @@ const SideBar = () => {
 
   return (
     <div className="w-2/12 h-full overflow-scroll bg-blue-400">
-      <div className="flex text-white text-lg justify-center my-5">
-        <h3> Room Name </h3>
+      <div className="flex text-white text-lg items-center my-5 ml-4">
+        <i class="fa-brands fa-rocketchat fa-beat fa-lg"></i>
+        <h3 className="ml-3"> Room Name </h3>
       </div>
-      <div className="flex text-white text-lg justify-center  bg-blue-500	">
-        {room}
+      <div className="flex text-white text-lg  bg-blue-500 p-2">
+        <span className="ml-3 capitalize">{room}</span>
       </div>
 
       <div className="my-10">
-        <h3 className="flex text-white text-lg justify-center my-5 ">
+        <h3 className="flex text-white text-lg ml-4 my-5 items-center">
           {" "}
-          Users{" "}
+          <i class="fa-solid fa-user fa-lg"></i>{" "}
+          <span className="ml-3"> Users </span>
         </h3>
-        <ul className=" flex text-white text-lg justify-center  items-center my-5 flex-col">
+        <ul className=" flex text-white text-lg  my-5 flex-col">
           {users.map((user) => {
             return (
-              <li className="flex justify-center items-center">
-                {user.name}
+              <li className="flex ml-5 items-center ">
+                <div className="my-1">{user.name}</div>
+
                 <div className="ml-2">
                   <span class="relative flex h-3 w-3">
                     <span
