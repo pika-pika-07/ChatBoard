@@ -15,7 +15,6 @@ const Login = () => {
     const roomName = roomRef.current.value;
     const userName = nameRef.current.value;
     const user = addUser(socket.id, userName, roomName);
-    debugger;
     navigate(`/chat?username=${user.name}&room=${user.room}`, {
       state: user,
     });

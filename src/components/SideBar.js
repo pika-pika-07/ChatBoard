@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { SocketContext } from "../contexts/SocketProvider";
 import { UsersContext } from "../contexts/UsersProvider";
 const SideBar = () => {
-  // const { users, loggedInUser } = useContext(UsersContext);
+  const { loggedInUser } = useContext(UsersContext);
   const socket = useContext(SocketContext);
 
   const [users, setUsers] = useState([]);
@@ -20,6 +20,30 @@ const SideBar = () => {
     return () => socket.off("roomUsers");
   }, [socket]);
 
+  useEffect(() => {
+    const handleFocus = () => {
+      socket.emit("online", loggedInUser);
+    };
+
+    const handleBlur = () => {
+      if (loggedInUser && socket) {
+        socket.emit("offline", loggedInUser);
+      }
+    };
+    const check = () => {
+      if (document.visibilityState === "visible") {
+        handleFocus();
+      } else {
+        handleBlur();
+      }
+    };
+    document.addEventListener("visibilitychange", check);
+
+    return () => {
+      document.removeEventListener("visibilitychange", check);
+    };
+  }, [loggedInUser]);
+
   return (
     <div className="w-2/12 h-full overflow-scroll bg-blue-400">
       <div className="flex text-white text-lg justify-center my-5">
@@ -36,10 +60,10 @@ const SideBar = () => {
         </h3>
         <ul className=" flex text-white text-lg justify-center  items-center my-5 flex-col">
           {users.map((user) => {
-            debugger;
             return (
               <li>
-                {user.name}d{user.id === socket.id ? "Online" : "offline"}
+                {user.name}
+                {user.online ? "Online" : "offline"}
               </li>
             );
           })}

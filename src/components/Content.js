@@ -17,8 +17,6 @@ const Content = () => {
       return;
     } else {
       socket.on("recieveChatMessage", (data) => {
-        // myref.current.scrollIntoView({ block: "nearest" });
-        // debugger;
         myref.current.scrollTop = myref.current.scrollHeight;
 
         createMessages(data);
