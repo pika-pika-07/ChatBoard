@@ -42,7 +42,7 @@ const Dashboard = () => {
   }, [socket]);
   return (
     <div className="w-full h-full flex flex-col border border-black">
-      <div className="h-[10%]">
+      <div className="flex w-full h-[10%]">
         <Header />
       </div>
 

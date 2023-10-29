@@ -5,7 +5,7 @@ const Message = ({ message, user, time, loggedInUser }) => {
   return user === "Bot" ? (
     <div className=" p-2 m-2 shadow-lg flex self-center w-2/12 ">
       <div className="flex flex-col">
-        <div className="text-sm">
+        <div className="text-sm whitespace-nowrap">
           {message}
           <span className="text-gray-500 text-xs mx-1"> {time} </span>{" "}
         </div>
