@@ -61,9 +61,22 @@ const SideBar = () => {
         <ul className=" flex text-white text-lg justify-center  items-center my-5 flex-col">
           {users.map((user) => {
             return (
-              <li>
+              <li className="flex justify-center items-center">
                 {user.name}
-                {user.online ? "Online" : "offline"}
+                <div className="ml-2">
+                  <span class="relative flex h-3 w-3">
+                    <span
+                      className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                        user.online ? "bg-[#0fcc45]" : "bg-[#cc0f0f]"
+                      }`}
+                    ></span>
+                    <span
+                      className={`relative inline-flex rounded-full h-3 w-3 ${
+                        user.online ? "bg-[#0fcc45]" : "bg-[#cc0f0f]"
+                      }`}
+                    ></span>
+                  </span>
+                </div>
               </li>
             );
           })}
