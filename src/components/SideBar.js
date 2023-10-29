@@ -50,7 +50,7 @@ const SideBar = () => {
         <i class="fa-brands fa-rocketchat fa-beat fa-lg"></i>
         <h3 className="ml-3"> Room Name </h3>
       </div>
-      <div className="flex text-white text-lg  bg-blue-500 p-2">
+      <div className="flex text-white text-md  bg-blue-500 p-2 rounded-lg shadow-lg border-dotted mx-2">
         <span className="ml-3 capitalize">{room}</span>
       </div>
 
@@ -58,8 +58,12 @@ const SideBar = () => {
         <i class="fa-solid fa-user fa-lg"></i>{" "}
         <h3 className="ml-3"> Current User </h3>
       </div>
-      <div className="flex text-white text-lg  bg-blue-500 p-2">
-        <span className="ml-3 capitalize">{loggedInUser.name}</span>
+      <div className="flex text-white text-md  bg-blue-500 p-2 mx-2 rounded-lg shadow-lg border-dotted">
+        <span className="ml-3 capitalize">{loggedInUser?.name}</span>
+        <span class="relative flex h-3 w-3 self-center ml-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-[#0fcc45]"></span>
+        </span>
       </div>
 
       <div className="my-10">
@@ -71,7 +75,7 @@ const SideBar = () => {
 
         <ul className=" flex text-white text-lg  my-5 flex-col">
           {users.map((user) => {
-            if (user.name !== loggedInUser.name) {
+            if (user.name !== loggedInUser?.name) {
               return (
                 <li className="flex ml-5 items-center ">
                   <div className="my-1">{user.name}</div>
@@ -79,8 +83,10 @@ const SideBar = () => {
                   <div className="ml-2">
                     <span class="relative flex h-3 w-3">
                       <span
-                        className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                          user.online ? "bg-[#0fcc45]" : "bg-[#cc0f0f]"
+                        className={` absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                          user.online
+                            ? "animate-ping bg-[#0fcc45]"
+                            : "bg-[#cc0f0f]"
                         }`}
                       ></span>
                       <span
