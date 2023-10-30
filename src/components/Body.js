@@ -5,6 +5,7 @@ import SideBar from "./SideBar";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Login from "./Login";
+import NotFound from "./NotFound";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -15,6 +16,10 @@ const Body = () => {
     {
       path: "/chat",
       element: <Dashboard />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
   ]);
   return (
