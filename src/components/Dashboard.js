@@ -19,7 +19,6 @@ const Dashboard = () => {
   const room = searchParams.get("room");
 
   useEffect(() => {
-    debugger;
     if (!socket) return;
     if (!loggedInUser) {
       if (username && room) {
@@ -42,9 +41,9 @@ const Dashboard = () => {
     return () => socket.off("welcomeMessage");
   }, [socket]);
   return (
-    <div className="w-full h-full flex flex-col border border-black">
+    <div className="w-full h-full flex flex-col border shadow-lg relative">
       <div className="flex w-full h-[10%]">
-        <Header />
+        <Header className="" />
       </div>
 
       <div className="flex w-full h-[90%]">

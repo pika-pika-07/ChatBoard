@@ -53,7 +53,7 @@ const Content = () => {
         ))}
       </div>
       <div></div>
-      <div className=" w-full flex justify-between items-center bg-blue-400 h-[10%] ">
+      <div className=" w-full flex justify-between items-center bg-black h-[10%] ">
         <div className=" w-full  rounded-lg">
           <input
             className="w-full outline-none p-2	rounded-lg shadow-lg"

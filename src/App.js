@@ -8,20 +8,18 @@ import { ConversationProvider } from "./contexts/ConversationProvider";
 function App() {
   return (
     <>
-      {/* <div className="absolute">
+      <div className="absolute">
         <img
-          className="h-screen object-cover sm:h-full"
-          src={
-            "https://w0.peakpx.com/wallpaper/693/621/HD-wallpaper-chat-bubble-neon-icon-blue-background-neon-symbols-chat-bubble-neon-icons-chat-bubble-sign-computer-signs-chat-bubble-icon-computer-icons.jpg"
-          }
+          className="w-[100vw]"
+          src={"https://wallpapercave.com/wp/wp4410743.png"}
           alt="logo"
         />
-      </div> */}
+      </div>
       <div className="flex flex-col max-w-7xl h-[900px] p-10 mx-auto my-[auto] justify-center items-center">
         <SocketProvider>
           <UsersProvider>
             <ConversationProvider>
-              <Body />
+              <Body className="absolute" />
             </ConversationProvider>
           </UsersProvider>
         </SocketProvider>

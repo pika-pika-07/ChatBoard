@@ -45,20 +45,20 @@ const SideBar = () => {
   }, [loggedInUser]);
 
   return (
-    <div className="w-2/12 h-full overflow-scroll bg-blue-400">
+    <div className="w-2/12 h-full overflow-scroll bg-black">
       <div className="flex text-white text-lg items-center my-4 ml-4">
         <i class="fa-brands fa-rocketchat fa-beat fa-lg"></i>
         <h3 className="ml-3"> Room Name </h3>
       </div>
-      <div className="flex text-white text-md  bg-blue-500 p-2 rounded-lg shadow-lg border-dotted mx-2">
-        <span className="ml-3 capitalize">{room}</span>
+      <div className="flex text-white text-md  bg-black p-2 rounded-lg shadow-lg border-dotted mx-2">
+        <span className="ml-3 ">{room}</span>
       </div>
 
       <div className="flex text-white text-lg items-center my-4 ml-4">
         <i class="fa-solid fa-user fa-lg"></i>{" "}
         <h3 className="ml-3"> Current User </h3>
       </div>
-      <div className="flex text-white text-md  bg-blue-500 p-2 mx-2 rounded-lg shadow-lg border-dotted">
+      <div className="flex text-white text-md  bg-black p-2 mx-2 rounded-lg shadow-lg border-dotted">
         <span className="ml-3 capitalize">{loggedInUser?.name}</span>
         <span class="relative flex h-3 w-3 self-center ml-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
