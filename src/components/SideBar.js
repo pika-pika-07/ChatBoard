@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SocketContext } from "../contexts/SocketProvider";
 import { UsersContext } from "../contexts/UsersProvider";
+import User from "./User";
 const SideBar = () => {
   const { loggedInUser } = useContext(UsersContext);
   const { socket } = useContext(SocketContext);
@@ -76,28 +77,7 @@ const SideBar = () => {
         <ul className=" flex text-white text-md mx-2 p-1 my-5 flex-col capitalize bg-[#143138] rounded-lg shadow-lg">
           {users.map((user) => {
             if (user.name !== loggedInUser?.name) {
-              return (
-                <li className="flex ml-3 items-center break-all  ">
-                  <div className="my-1 ">{user.name}</div>
-
-                  <div className="ml-2">
-                    <span class="relative flex h-3 w-3 ">
-                      <span
-                        className={` absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                          user.online
-                            ? "animate-ping bg-[#0fcc45]"
-                            : "bg-[#cc0f0f]"
-                        }`}
-                      ></span>
-                      <span
-                        className={`relative inline-flex rounded-full h-3 w-3 ${
-                          user.online ? "bg-[#0fcc45]" : "bg-[#cc0f0f]"
-                        }`}
-                      ></span>
-                    </span>
-                  </div>
-                </li>
-              );
+              return <User user={user} />;
             } else {
               return null;
             }
