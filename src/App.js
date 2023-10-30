@@ -10,7 +10,7 @@ function App() {
     <>
       <div className="absolute">
         <img
-          className="w-[100vw] md:h-[100%] h-[100vh]"
+          className="w-[100vw] h-[100vh]"
           src={"https://wallpapercave.com/wp/wp4410743.png"}
           alt="logo"
         />

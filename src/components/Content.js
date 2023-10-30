@@ -56,7 +56,7 @@ const Content = () => {
       <div className="w-full flex justify-between items-center bg-black h-[10%] ">
         <div className=" w-full  rounded-lg">
           <input
-            className="w-full outline-none md:p-2 p-1 rounded-lg shadow-lg md:text-[1rem] text-xs"
+            className="w-full outline-none md:p-2 p-0.5 md:mb-0 mb-2 rounded-lg shadow-lg md:text-[1rem] text-[0.6rem]"
             value={inputValue}
             placeholder="Enter message"
             onKeyUp={handleKeyPress}
@@ -65,7 +65,7 @@ const Content = () => {
         </div>
         <div className="w-1/12 px-3 rounded-lg flex justify-between items-center ">
           <button onClick={handleMessageClick}>
-            <i className="fa-regular fa-paper-plane md:fa-lg fa-sm text-white"></i>
+            <i className="fa-regular fa-paper-plane md:fa-lg md:text-lg fa-sm text-white"></i>
           </button>
         </div>
       </div>
