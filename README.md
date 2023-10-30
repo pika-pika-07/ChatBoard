@@ -4,6 +4,7 @@ This is a Realtime chat web application which allows users to create a room and 
 
 ## Tech Stack
 - Reactjs as Frontend Library
+- Socket.io for Realtime connection
 - Tailwind css
 - Webpack as bundler
 
