@@ -2,7 +2,7 @@ import React from "react";
 
 const User = ({ user }) => {
   return (
-    <li className="flex ml-3 items-center break-all  ">
+    <li className="flex md:ml-3 ml-1 md:text-[0.9rem] text-[0.6rem] items-center break-all  ">
       <div className="my-1 ">{user.name}</div>
 
       <div className="ml-2">

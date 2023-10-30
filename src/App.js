@@ -10,12 +10,12 @@ function App() {
     <>
       <div className="absolute">
         <img
-          className="w-[100vw]"
+          className="w-[100vw] md:h-[100%] h-[100vh]"
           src={"https://wallpapercave.com/wp/wp4410743.png"}
           alt="logo"
         />
       </div>
-      <div className="flex flex-col max-w-7xl h-[900px] p-10 mx-auto my-[auto] justify-center items-center">
+      <div className="flex flex-col max-w-7xl md:h-[900px] h-[500px] p-10 mx-auto my-[auto] justify-center items-center">
         <SocketProvider>
           <UsersProvider>
             <ConversationProvider>

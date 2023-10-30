@@ -23,7 +23,7 @@ const Body = () => {
     },
   ]);
   return (
-    <div className="w-full h-full flex">
+    <div className="md:w-full md:h-full flex w-[80%] h[80%]">
       <RouterProvider router={appRouter}></RouterProvider>
     </div>
   );

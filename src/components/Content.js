@@ -41,7 +41,7 @@ const Content = () => {
     }
   };
   return (
-    <div className=" h-[100%] w-10/12  flex flex-col  ">
+    <div className=" h-[100%] md:w-[80%] w-[65%]  flex flex-col  ">
       <div ref={myref} className="flex flex-col overflow-scroll h-[90%]">
         {messages.map((message) => (
           <Message
@@ -53,19 +53,19 @@ const Content = () => {
         ))}
       </div>
       <div></div>
-      <div className=" w-full flex justify-between items-center bg-black h-[10%] ">
+      <div className="w-full flex justify-between items-center bg-black h-[10%] ">
         <div className=" w-full  rounded-lg">
           <input
-            className="w-full outline-none p-2	rounded-lg shadow-lg"
+            className="w-full outline-none md:p-2 p-1 rounded-lg shadow-lg md:text-[1rem] text-xs"
             value={inputValue}
             placeholder="Enter message"
             onKeyUp={handleKeyPress}
             onChange={handleInputChange}
           />
         </div>
-        <div className=" w-1/12 px-3 rounded-lg flex justify-between items-center ">
+        <div className="w-1/12 px-3 rounded-lg flex justify-between items-center ">
           <button onClick={handleMessageClick}>
-            <i className="fa-regular fa-paper-plane fa-lg text-white"></i>
+            <i className="fa-regular fa-paper-plane md:fa-lg fa-sm text-white"></i>
           </button>
         </div>
       </div>

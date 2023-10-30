@@ -17,11 +17,13 @@ const Header = () => {
   };
   return (
     <div className="flex justify-between w-full h-full bg-black">
-      <div className="flex text-[2rem] text-white p-4 mx-8">ChatApp</div>
+      <div className="flex md:text-[2rem] text-[0.7rem] md:my-0 my-4 text-white md:p-4 p-0 mx-8">
+        ChatApp
+      </div>
       <div className=" flex justify-center items-center p-4 text-white ">
         <button
           onClick={reset}
-          className=" text-lg border border-solid p-2 rounded-lg shadow-lg"
+          className=" md:text-lg text-[0.7rem] border border-solid md:p-2 p-1 rounded-lg shadow-lg"
         >
           {" "}
           Leave Room{" "}

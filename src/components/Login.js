@@ -28,7 +28,7 @@ const Login = () => {
   };
   return (
     <div>
-      <form className="md:w-3/12 w-[80%] absolute p-12 bg-black  my-48 mx-auto right-0 left-0 text-white bg-opacity-80 shadow-lg">
+      <form className="md:w-3/12 w-[80%] absolute p-12 bg-black  my-auto mx-auto top-60 right-0 left-0 text-white bg-opacity-80 shadow-lg">
         <h1 className="font-bold text-3xl py-4">Welcome to LiveChat</h1>
         <input
           ref={roomRef}
