@@ -56,14 +56,14 @@ const Content = () => {
       <div className=" w-full flex justify-between items-center bg-blue-400 h-[10%] ">
         <div className=" w-full  rounded-lg">
           <input
-            className="w-full outline-none p-2	"
+            className="w-full outline-none p-2	rounded-lg shadow-lg"
             value={inputValue}
             placeholder="Enter message"
             onKeyUp={handleKeyPress}
             onChange={handleInputChange}
           />
         </div>
-        <div className=" w-1/12 px-3 rounded-lg flex justify-between items-center">
+        <div className=" w-1/12 px-3 rounded-lg flex justify-between items-center ">
           <button onClick={handleMessageClick}>
             <i class="fa-regular fa-paper-plane fa-lg"></i>
           </button>

@@ -21,7 +21,7 @@ const Header = () => {
       <div className=" flex justify-center items-center p-4 text-white ">
         <button
           onClick={reset}
-          className=" text-lg border border-solid p-2 rounded-lg"
+          className=" text-lg border border-solid p-2 rounded-lg shadow-lg"
         >
           {" "}
           Leave Room{" "}
