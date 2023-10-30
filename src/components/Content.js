@@ -65,7 +65,7 @@ const Content = () => {
         </div>
         <div className=" w-1/12 px-3 rounded-lg flex justify-between items-center ">
           <button onClick={handleMessageClick}>
-            <i class="fa-regular fa-paper-plane fa-lg"></i>
+            <i className="fa-regular fa-paper-plane fa-lg text-white"></i>
           </button>
         </div>
       </div>

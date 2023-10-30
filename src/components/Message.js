@@ -5,9 +5,12 @@ const Message = ({ message, user, time, loggedInUser }) => {
   return user === "Bot" ? (
     <div className=" p-2 m-2 shadow-lg flex self-center  bg-gray-400 whitespace-nowrap rounded-lg justify-center">
       <div className="flex flex-col ">
-        <div className="text-sm text-white">
+        <div className="text-sm text-white text-bold">
           {message}
-          <span className="text-white text-xs mx-1"> {time} </span>{" "}
+          <span className="text-white text-xs mx-1 text-bold">
+            {" "}
+            {time}{" "}
+          </span>{" "}
         </div>
       </div>
     </div>
@@ -18,7 +21,7 @@ const Message = ({ message, user, time, loggedInUser }) => {
       } `}
     >
       <div className="flex flex-col">
-        <div className="text-blue-400 text-md whitespace-nowrap">
+        <div className="text-blue-600 text-md whitespace-nowrap">
           {user} <span className="text-gray-500 text-sm mx-1 "> {time} </span>
         </div>
         <div className="text-[16px]">{message}</div>
