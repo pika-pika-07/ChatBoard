@@ -10,7 +10,6 @@ const Content = () => {
   const { messages, createMessages } = useContext(ConversationsContext);
   const { loggedInUser } = useContext(UsersContext);
   const { socket } = useContext(SocketContext);
-  const { users } = useContext(UsersContext);
 
   useEffect(() => {
     if (!socket) {
@@ -36,7 +35,7 @@ const Content = () => {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && inputValue.length) {
       handleMessageClick();
     }
   };
